@@ -35,16 +35,7 @@ export default class TagTileContextMenu extends React.Component {
     constructor() {
         super();
 
-        this._onViewCommunityClick = this._onViewCommunityClick.bind(this);
         this._onRemoveClick = this._onRemoveClick.bind(this);
-    }
-
-    _onViewCommunityClick() {
-        dis.dispatch({
-            action: 'view_group',
-            group_id: this.props.tag,
-        });
-        this.props.onFinished();
     }
 
     _onRemoveClick() {
@@ -54,10 +45,6 @@ export default class TagTileContextMenu extends React.Component {
 
     render() {
         return <div>
-            <MenuItem className="mx_TagTileContextMenu_item mx_TagTileContextMenu_viewCommunity" onClick={this._onViewCommunityClick}>
-                { _t('View Community') }
-            </MenuItem>
-            <hr className="mx_TagTileContextMenu_separator" role="separator" />
             <MenuItem className="mx_TagTileContextMenu_item mx_TagTileContextMenu_hideCommunity" onClick={this._onRemoveClick}>
                 { _t('Hide') }
             </MenuItem>
